@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - SMKN 3 Banjar</title>
+    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.tailwindcss.min.css">
+   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+   <script src="/dist/js/jquery.dataTables.min.js"></script>
+   <script src="/dist/js/dataTables.tailwindcss.min.js"></script>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+         .dataTables_filter input[type="search"] {
+            background-color: #fafafa; /* Warna latar belakang */
+            color: #020000; /* Warna teks */
+            border: 1px solid #0d1820; /* Warna border */
+         }
+         .dataTables_length select[name="example_length"] {
+            background-color: #fafafa; /* Warna latar belakang */
+            color: #020000; /* Warna teks */
+            border: 1px solid #0d1820; /* Warna border */
+         }
+         .dataTables_paginate a{
+            background-color: #ffffff; /* Warna latar belakang */
+            color: #160606; /* Warna teks */
+            border: 1px solid #070c11; /* Warna border */
+            
+         }
+         #example tr:nth-child(odd) {
+            background-color: #ffffff; /* Warna latar belakang */
+            color: #000000; /* Warna teks */
+         }
+         #example tr:nth-child(even) {
+            background-color: #f4f4f4; /* Warna latar belakang */
+            color: #000000; /* Warna teks */
+         }
+         #example_wrapper .my-2 th{
+            border-right: none; /* Menghilangkan border samping kanan */
+            border-left: none; /* Menghilangkan border samping kiri */
+         }
+   </style>
+</head>
+
+<body class="bg-gray-200">
+    <!-- Navigation  -->
+    <nav class="fixed top-0 z-20 w-full border-b bg-blue-900/80 backdrop-blur-lg border-gray-200/40">
+        <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 py-2.5 md:px-4 md:py-3.5 mx-auto">
+            <a href="#" class="flex items-center">
+                <img src="/dist/images/logosmk.png" class="h-8 mr-3" alt="SMKN3BanjarLogo" />
+                <span
+                    class="self-center text-xl font-semibold tracking-tighter text-white sm:text-white md:text-white max-lg:hidden whitespace-nowrap font-sen">SMKN
+                    3 BANJAR</span>
+            </a>
+            <div class="lg:hidden">
+                <span
+                    class="self-center text-lg font-semibold tracking-tighter text-white whitespace-nowrap font-sen">SMKN
+                    3 BANJAR</span>
+            </div>
+            <div class="flex lg:order-2">
+                <button data-drawer-target="separator-sidebar" data-drawer-toggle="separator-sidebar"
+                    aria-controls="separator-sidebar" type="button"
+                    class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                    <span class="sr-only">Open sidebar</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" fill-rule="evenodd"
+                            d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+    </nav>
+
+    <aside id="separator-sidebar" class="sm:pt-[65px]  fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+        <!-- <aside id="separator-sidebar" class="hidden lg:block sm:pt-[65px] fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar"> -->
+           <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50">
+              <ul class="space-y-2 font-medium">
+                 <li>
+                    <a href="#"
+                       class="flex items-center p-2 rounded-lg hover:bg-gray-100 group">
+                       <i class="bi bi-speedometer"></i>
+                       <span class="ml-3">Dashboard</span>
+                    </a>
+                 </li>
+                 <li>
+                    <a href="#"
+                       class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                       <i class="bi bi-people-fill"></i>
+                       <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+                    </a>
+                 </li>
+                 <li class="flex flex-col">
+                    <div class="w-full h-[1px] bg-gray-200"></div>
+                    <span class="items-center text-sm font-normal text-gray-400 ml-9 ">Article</span>
+                 </li>
+                 <li>
+                    <a href="#"
+                       class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                       <i class="bi bi-file-text-fill"></i>
+                       <span class="flex-1 ml-3 whitespace-nowrap">Article</span>
+     
+                    </a>
+                 </li>
+                 <li>
+                    <a href="#"
+                       class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                       <i class="bi bi-journal-text"></i>
+                       <span class="flex-1 ml-3 whitespace-nowrap">Category Article</span>
+                    </a>
+                 </li>
+                 <li class="flex flex-col">
+                    <div class="w-full h-[1px] bg-gray-200"></div>
+                    <span class="items-center text-sm font-normal text-gray-400 ml-9">Laporan Pengaduan</span>
+                 </li>
+                 <li>
+                    <a href="#"
+                       class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                       <i class="bi bi-envelope-fill"></i>
+                       <span class="flex-1 ml-3 whitespace-nowrap">Pengaduan</span>
+                    </a>
+                 </li>
+                 <li>
+                    <a href="#"
+                       class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                       <i class="bi bi-bookmark-plus"></i>
+                       <span class="flex-1 ml-3 whitespace-nowrap">Category Pengaduan</span>
+                    </a>
+                 </li>
+                 <li class="flex flex-col">
+                    <div class="h-[1px] w-full bg-gray-200"></div>
+                    <span class="items-center text-sm font-normal text-gray-400 ml-9">Documentation Kegiatan</span>
+                 </li>
+                 <li>
+                    <a href="#"
+                       class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                       <i class="bi bi-card-image"></i>
+                       <span class="flex-1 ml-3 whitespace-nowrap">Gallery</span>
+                    </a>
+                 </li>
+                 <li>
+                    <a href="#"
+                       class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                       <i class="bi bi-youtube"></i>
+                       <span class="flex-1 ml-3 whitespace-nowrap">Video</span>
+                    </a>
+                 </li>
+                 <li class="flex flex-col">
+                    <div class="h-[1px] w-full bg-gray-200"></div>
+                    <span class="items-center text-sm font-normal text-gray-400 ml-9">Prodi and Ekstra</span>
+                 </li>
+                 <li>
+                    <a href="#"
+                       class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                       <i class="bi bi-postcard"></i>
+                       <span class="flex-1 ml-3 whitespace-nowrap">Program Studi</span>
+                    </a>
+                 </li>
+                 <li>
+                    <a href="#"
+                       class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                       <i class="bi bi-window-plus"></i>
+                       <span class="flex-1 ml-3 whitespace-nowrap">Ekstra</span>
+                    </a>
+                 </li>
+                 <li class="flex flex-col">
+                    <div class="h-[1px] w-full bg-gray-200"></div>
+                    <span class="items-center text-sm font-normal text-gray-400 ml-9">GTK</span>
+                 </li>
+                 <li>
+                    <a href="#"
+                       class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                       <i class="bi bi-person-badge-fill"></i>
+                       <span class="flex-1 ml-3 whitespace-nowrap">GTK</span>
+                    </a>
+                 </li>
+                 <li class="flex flex-col">
+                    <div class="h-[1px] w-full bg-gray-200"></div>
+                    <span class="items-center text-sm font-normal text-gray-400 ml-9">Profile</span>
+                 </li>
+                 <li>
+                    <a href="#"
+                       class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                       <i class="bi bi-person"></i>
+                       <span class="flex-1 ml-3 whitespace-nowrap">Profile</span>
+                    </a>
+                 </li>
+                 <li class="flex">
+                    <div class="h-[1px] w-full bg-gray-200"></div>
+                 </li>
+                 <li>
+                    <a href="#"
+                       class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                       <i class="bi bi-arrow-left-square"></i>
+                       <span class="flex-1 ml-3 whitespace-nowrap">Sign Out</span>
+                    </a>
+                 </li>
+              </ul>
+     
+           </div>
+        </aside>
+
+    <section>
+        <div class="px-4 py-4 mt-12 bg-white lg:pl-72">
+            <h1 class="text-[25px] text-blue-400">Documentasi Kegiatan</h1>
+            <p class="text-[13px]"><span class="text-blue-400">Gallery</span> / Detail</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="w-full px-4 py-4 mt-3 mb-12 lg:pl-72">
+            <div class="flex justify-between px-4 py-2 bg-blue-900/80 rounded-tr-md rounded-tl-md">
+                <h1 class="font-semibold text-white">Form Add Photo</h1>
+            </div>
+            <div class="flex px-4 py-4 bg-white">
+                <table id="example" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011-04-25</td>
+                            <td>$320,800</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="px-4 py-4 mt-12 bg-white lg:pl-72">
+            <p class="text-[13px] text-center">© 2023 SMK NEGERI 3 BANJAR</p>
+        </div>
+    </footer>
+
+    <script src="/../node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script type="text/javascript">
+        $('#example').DataTable();
+     </script>
+</body>
+
+</html>
